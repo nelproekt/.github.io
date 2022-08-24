@@ -113,34 +113,71 @@ $(document).ready(function() {
 		$(this).addClass('active');
 	});
 	
+	$('.more-details').on('click', function(){
+		var id = $(this).attr("id");
+		$('#popup .modal-dialog').load('views/' + id + '.html', function(response, status, xhr){
+			$( "#popup .modal-dialog" ).html( response );
+			
+			$('#popup').on('shown.bs.modal', function () {
+				let current = $('#popup').find('.slider-project');
+				current.on('init', function () {
+					current.css({visibility: 'visible', opacity: 1});
+				});
+				current.slick({
+					slidesToShow: 3,
+					slidesToScroll: 1,
+					accessibility: true,
+					arrows: true,
+					dots: false,
+					centerMode: true,
+					variableWidth: true,
+					infinite: true,
+					focusOnSelect: true,
+					cssEase: 'linear',
+					touchMove: true,
+					prevArrow:'<button class="slick-prev"> < </button>',
+					nextArrow:'<button class="slick-next"> > </button>',
+				});
+				$('#popup').find('.slick-current').focus();
+				current.slick('refresh');
+				current.on('afterChange',function(){
+					$('#popup').find('.slick-current').focus();
+				});
+			});
+			
+			
+			$('#popup').modal('show');
+		});
+		
+	});
 	
 	
-	$('.modal').on('shown.bs.modal', function () {
-		let current = $(this).find('.slider-project');
-		current.on('init', function () {
-			current.css({visibility: 'visible', opacity: 1});
-		});
-		current.slick({
-			slidesToShow: 3,
-			slidesToScroll: 1,
-			accessibility: true,
-			arrows: true,
-			dots: false,
-			centerMode: true,
-			variableWidth: true,
-			infinite: true,
-			focusOnSelect: true,
-			cssEase: 'linear',
-			touchMove: true,
-			prevArrow:'<button class="slick-prev"> < </button>',
-			nextArrow:'<button class="slick-next"> > </button>',
-		});
-		$(this).find('.slick-current').focus();
-		current.slick('refresh');
-		current.on('afterChange',function(){
-			$(this).find('.slick-current').focus();
-		});
-	});	
+	// $('.modal').on('shown.bs.modal', function () {
+		// let current = $(this).find('.slider-project');
+		// current.on('init', function () {
+			// current.css({visibility: 'visible', opacity: 1});
+		// });
+		// current.slick({
+			// slidesToShow: 3,
+			// slidesToScroll: 1,
+			// accessibility: true,
+			// arrows: true,
+			// dots: false,
+			// centerMode: true,
+			// variableWidth: true,
+			// infinite: true,
+			// focusOnSelect: true,
+			// cssEase: 'linear',
+			// touchMove: true,
+			// prevArrow:'<button class="slick-prev"> < </button>',
+			// nextArrow:'<button class="slick-next"> > </button>',
+		// });
+		// $(this).find('.slick-current').focus();
+		// current.slick('refresh');
+		// current.on('afterChange',function(){
+			// $(this).find('.slick-current').focus();
+		// });
+	// });	
 	
 });
   
