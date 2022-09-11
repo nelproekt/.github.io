@@ -396,7 +396,7 @@ h2{
 	background: url(../img/home.jpg) 0 0 no-repeat;
 	background-size: 100% auto;
 	height: 100%;
-	min-height: 600px;
+	min-height: calc(100vw * 0.47);
 }
 
 #projects{
@@ -814,9 +814,51 @@ h2{
 	width: 100%;
 }
 
-@media (max-width: 767px){
+@media (max-width: 991px){
+	#main-menu #main-menu-collapse.navbar-collapse.collapse {
+		width: 100%;
+		margin-right: 0;
+	}
+	#main-menu .navbar-right {
+	  margin-top: 12vh;
+	}
+	
+	#projects .project-container .image-box{
+	  overflow: visible;
+	}
+	#projects .project-container img {
+		-moz-transform: scale(1);
+		-ms-transform: scale(1);
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}	
+	#projects .project-container .image-box .info {
+		visibility: visible;
+		opacity: 1;
+		position: relative;
+		bottom: 0;
+	}
+	
+	#about .row {
+		position: inherit;
+	}
+	#about .header-name {
+		position: inherit;
+		padding: 25px 15px;
+	}
+	#about .left-side .header-name {
+		left: auto;
+	}
+	#about .left-line {
+		border-left: none;
+	}
+	
 	#contact .row .col-xs-12{
 		padding-right: 0;
 		padding-left: 0;
+	}
+	
+	.footer {
+		height: auto;
 	}
 }
