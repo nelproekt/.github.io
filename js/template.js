@@ -62,7 +62,7 @@ function reveal() {
 	
 	if(fltr == null){
 		$('section').each(function () {
-			if($(this).position().top <= $(document).scrollTop() && ($(this).position().top + $(this).outerHeight()) > $(document).scrollTop()) {
+			if($(this).position().top < windowHeight - elementVisible || ($(this).position().top <= $(document).scrollTop() && ($(this).position().top + $(this).outerHeight()) > $(document).scrollTop())) {
 				if($(this).attr('id') == 'projects') fltr = $('.filter-container').filterizr({layout: 'sameWidth'});
 			}
 		});
@@ -72,6 +72,7 @@ function reveal() {
 $(document).ready(function() {
 	logoAnimation();
 	backToTop();
+
   
 	$('#main-menu-collapse').on('show.bs.collapse', function () {
 		$('#main-menu #main-menu-collapse.navbar-collapse').addClass('in');
@@ -143,6 +144,7 @@ $(document).ready(function() {
 				current.on('afterChange',function(){
 					$('#popup').find('.slick-current').focus();
 				});
+				
 			});
 			
 			
@@ -151,38 +153,11 @@ $(document).ready(function() {
 		
 	});
 	
-	
-	// $('.modal').on('shown.bs.modal', function () {
-		// let current = $(this).find('.slider-project');
-		// current.on('init', function () {
-			// current.css({visibility: 'visible', opacity: 1});
-		// });
-		// current.slick({
-			// slidesToShow: 3,
-			// slidesToScroll: 1,
-			// accessibility: true,
-			// arrows: true,
-			// dots: false,
-			// centerMode: true,
-			// variableWidth: true,
-			// infinite: true,
-			// focusOnSelect: true,
-			// cssEase: 'linear',
-			// touchMove: true,
-			// prevArrow:'<button class="slick-prev"> < </button>',
-			// nextArrow:'<button class="slick-next"> > </button>',
-		// });
-		// $(this).find('.slick-current').focus();
-		// current.slick('refresh');
-		// current.on('afterChange',function(){
-			// $(this).find('.slick-current').focus();
-		// });
-	// });	
-	
 });
   
 
 $(window).on('load', function(){ 
+	reveal();
 	window.addEventListener("scroll", reveal);
 });
 	
