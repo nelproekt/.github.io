@@ -514,9 +514,6 @@ h2{
 #projects .modal-lg{
 	width: 90vw;
 }
-#projects .modal-body{
-	background: url('../img/loading.svg') center center no-repeat;
-}
 #projects .modal-body .close{
 	z-index: 301;
 	position: absolute;
@@ -533,6 +530,7 @@ h2{
 	padding: 4px 0 4px 0;
 }
 #projects .slider-project {
+	background: url('../img/loading.svg') center center no-repeat;
 	visibility: hidden;
 	opacity:0;
 }
@@ -750,7 +748,7 @@ h2{
     font-size: 2em;
 	color: #bf0000;
 }
-#contact ul li a:hover {
+#contact ul li:hover {
 	color: #fabc00;
 }
 #contact .row .col-xs-1{
@@ -837,6 +835,12 @@ h2{
 		opacity: 1;
 		position: relative;
 		bottom: 0;
+	}
+	#projects .modal-body .info {
+		width: 100%;
+		margin-bottom: 15px;
+		margin-left: -15px;
+		position: relative;
 	}
 	
 	#about .row {
