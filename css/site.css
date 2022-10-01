@@ -83,6 +83,9 @@ a:hover{
 	color: #4d4d4d;
 	text-decoration: none;
 }
+a:focus{
+	text-decoration: none;
+}
 h2{
 	font-family: 'Poiret One';
 	font-weight: bold;
@@ -99,11 +102,6 @@ h2{
 }
 .header{
 	min-height: 70px;
-}
-.section-header {
-	background: url(../img/markerLineRedMoreDark2.svg) no-repeat;
-	background-size: 34vw;
-	background-position: 33vw 25px;
 }
 .reveal{
   position: relative;
@@ -748,8 +746,10 @@ h2{
     font-size: 2em;
 	color: #bf0000;
 }
-#contact ul li:hover {
+#contact ul li:hover,
+#contact ul li:hover a {
 	color: #fabc00;
+	transition: 1s all ease;
 }
 #contact .row .col-xs-1{
 	margin-right: 10px;
