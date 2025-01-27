@@ -521,7 +521,7 @@ h2{
 #projects .modal-body .info {
 	z-index: 500;
 	left: 0;
-	width: 30%;
+	width: 31%;
 	box-shadow: 0 5px 5px rgba(0,0,0,.26);
 }
 #projects .modal-body .info .row{
