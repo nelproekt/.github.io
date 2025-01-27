@@ -115,15 +115,18 @@ $(document).ready(function() {
 	});
 	
 	$('.more-details').on('click', function(){
-		var id = $(this).attr("id");
+		let id = $(this).attr("id");
 		$('#popup .modal-dialog').load('views/' + id + '.html', function(response, status, xhr){
-			$( "#popup .modal-dialog" ).html( response );
 			
+			$( "#popup .modal-dialog" ).html( response );
+
 			$('#popup').on('shown.bs.modal', function () {
 				let current = $('#popup').find('.slider-project');
+		
 				current.on('init', function () {
 					current.css({visibility: 'visible', opacity: 1});
 				});
+
 				current.slick({
 					slidesToShow: 3,
 					slidesToScroll: 1,
@@ -144,11 +147,16 @@ $(document).ready(function() {
 				current.on('afterChange',function(){
 					$('#popup').find('.slick-current').focus();
 				});
+				$('#popup').on('hide.bs.modal', function () {
+					current.slick('unslick');
+					$('#popup').off('shown.bs.modal');
+				});
 				
 			});
 			
 			
 			$('#popup').modal('show');
+			
 		});
 		
 	});
